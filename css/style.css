@@ -1,0 +1,614 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+main {
+  flex: 1;
+}
+
+.section {
+  display: none;
+}
+/* Mostrar la sección activa */
+.active {
+  display: block;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  background-color: #059bbf;
+  padding: 10px 30px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 30px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-size: 0.9em;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon-container:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+/* Buscador */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 40px;
+  background-color: #00a6cb;
+  padding: 10px 20px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 1.2em;
+  width: 90%;
+  margin-left: 10px;
+}
+
+/* Tarjetas */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin-top: 15px;
+}
+
+
+ /* === Sección Calculadora === */
+#calculator {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.toolbar {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.math-buttons,
+.toolbar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.math-buttons button,
+.toolbar-buttons button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.math-buttons button:hover,
+.toolbar-buttons button:hover {
+  background: #f0f0f0;
+}
+
+.input-area {
+  display: flex;
+  margin-top: 10px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.camera-btn {
+  padding: 8px 12px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-btn:hover {
+  background: #ddd;
+}
+
+.camera-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.examples {
+  margin-top: 20px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+#graphing-calculator {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.geometry-container {
+  display: flex;
+  height: 500px;
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+}
+
+.left-panel {
+  width: 50%;
+  border-right: 1px solid #ddd;
+  padding: 10px;
+}
+
+.right-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.teal {
+  background-color: teal;
+  color: white;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 10px 0;
+}
+
+.toolbar button {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.toolbar button:hover {
+  background-color: #e0e0e0;
+}
+
+.btn.teal {
+  background-color: #009688;
+  color: white;
+}
+
+.btn.teal:hover {
+  background-color: #00796b;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Contenedor del personaje */
+.character-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Cuerpo principal (cuadrado) */
+.character {
+  width: 80px;
+  height: 80px;
+  background-color: #f9b233;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: bounce 2.5s infinite;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Brazos */
+.character::before,
+.character::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: #3a2f4d;
+  top: 30%;
+  border-radius: 5px;
+}
+
+.character::before {
+  left: -30px;
+  transform: rotate(30deg);
+}
+
+.character::after {
+  right: -30px;
+  transform: rotate(-30deg);
+}
+
+/* Piernas */
+.leg {
+  width: 5px;
+  height: 30px;
+  background-color: #3a2f4d;
+  position: absolute;
+  bottom: -30px;
+  border-radius: 3px;
+}
+
+.leg.left {
+  left: 20px;
+}
+
+.leg.right {
+  right: 20px;
+}
+
+/* Ojos y sonrisa */
+.face {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eyes {
+  display: flex;
+  gap: 10px;
+}
+
+.eye {
+  width: 8px;
+  height: 8px;
+  background-color: #2b2b2b;
+  border-radius: 50%;
+}
+
+.smile {
+  margin-top: 5px;
+  width: 30px;
+  height: 15px;
+  border-bottom: 3px solid #2b2b2b;
+  border-radius: 0 0 25px 25px;
+}
+
+/* Elementos flotantes geométricos */
+.shape {
+  position: absolute;
+  animation: float 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.shape.circle {
+  width: 20px;
+  height: 20px;
+  background-color: #9cd7f7;
+  border-radius: 50%;
+  top: -40px;
+  left: -25px;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid #6ec1e4;
+  top: -60px;
+  left: 40px;
+}
+
+.shape.square {
+  width: 16px;
+  height: 16px;
+  background-color: #cfeaff;
+  top: -20px;
+  right: -25px;
+}
+
+/* Texto */
+.message {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #555;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.game-card {
+  position: relative;
+  width: 250px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  padding: 40px 20px 20px; /* más espacio arriba para el SVG */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: visible; /* permite que el SVG sobresalga */
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  background: #d4f0ff;
+}
+
+.svg-wrapper {
+  position: absolute;
+  top: -40px; /* la mitad del tamaño del SVG */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+}
+
+.svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer al fondo */
+footer {
+  background-color: #059bbf;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 90%;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .geometry-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+
+  .right-panel {
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toolbar,
+  .options,
+  .input-area {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .input-area input {
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+
+  .shape-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .shape-buttons button {
+    width: 45%;
+    font-size: 0.9em;
+  }
+
+  .character {
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+  }
+
+  .leg {
+    height: 20px;
+  }
+
+  .eye {
+    width: 6px;
+    height: 6px;
+  }
+
+  .smile {
+    width: 20px;
+    height: 10px;
+  }
+
+  .message {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+

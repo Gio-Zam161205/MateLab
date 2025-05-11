@@ -1,0 +1,266 @@
+/* ===== ESTILOS GENERALES ===== */
+body {
+  font-family: 'Luckiest Guy', cursive;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: white;
+  overflow: hidden;
+}
+
+.game-container {
+  width: 1200px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+}
+
+/* ===== ESCENARIOS ===== */
+.scenario {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  transition: all 0.7s;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px; /* Espacio superior para el personaje */
+}
+
+/* ===== TEXTO DE ESCENA ===== */
+.scene-text {
+  font-size: 1.5rem;
+  margin: 0 auto 30px auto; /* 30px de separación inferior */
+  padding: 15px 25px;
+  background: rgba(241, 196, 15, 0.15);
+  border-radius: 15px;
+  border-left: 5px solid #f1c40f;
+  max-width: 80%;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 5;
+}
+
+/* ===== PREGUNTA MATEMÁTICA ===== */
+.question {
+  font-size: 4.5rem;
+  margin: 40px 0; /* 40px de separación vertical */
+  color: #f1c40f;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+  padding: 0 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 15px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ===== PERSONAJE ===== */
+.character {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  bottom: 25%; /* Posición más alta */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  z-index: 10;
+}
+
+/* ===== INTERFAZ INFERIOR ===== */
+.game-ui {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 25px;
+  color: white;
+  text-align: center;
+  border-top: 4px solid #f1c40f;
+  z-index: 20;
+}
+
+/* ===== RESTANTE DEL CSS (conserva todo esto igual) ===== */
+.enemy {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 20%;
+  right: -100px;
+  transition: all 0.5s;
+  z-index: 5;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.stat {
+  margin: 5px 10px;
+  font-size: 1.2em;
+}
+
+.hearts span {
+  font-size: 1.5em;
+  margin: 0 5px;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  font-size: 1.2em;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+button {
+  background: #f1c40f;
+  color: #1a2b3c;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  font-family: 'Luckiest Guy', cursive;
+  margin: 5px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #f39c12;
+}
+
+#soundBtn {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+.feedback {
+  min-height: 30px;
+  font-size: 1.2em;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.time-bar {
+  width: 90%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+.time-left {
+  height: 100%;
+  width: 100%;
+  background: #2ecc71;
+  border-radius: 5px;
+  transition: width 0.1s linear;
+}
+
+#effects {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes explosion {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.explosion {
+  position: absolute;
+  color: #f1c40f;
+  font-size: 30px;
+  font-weight: bold;
+  animation: explosion 0.7s forwards;
+  text-shadow: 0 0 5px #000;
+}
+
+@keyframes fire {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.fire {
+  position: absolute;
+  color: #e74c3c;
+  font-size: 40px;
+  animation: fire 0.5s forwards;
+}
+
+@keyframes enemyAttack {
+  0% { right: -100px; }
+  50% { right: 150px; }
+  100% { right: -100px; }
+}
+
+.enemy-attack {
+  animation: enemyAttack 1.5s forwards;
+}
+
+/* Escenarios con texturas CSS */
+.jungle {
+  background: 
+    linear-gradient(to bottom, #1e8449, #145a32),
+    radial-gradient(circle at 20% 70%, #27ae60 5%, transparent 15%),
+    radial-gradient(circle at 80% 80%, #27ae60 8%, transparent 18%);
+}
+
+.cave {
+  background: 
+    linear-gradient(to bottom, #4a235a, #1b2631),
+    radial-gradient(circle at 50% 30%, #7f8c8d 10%, transparent 20%);
+}
+
+.beach {
+  background: 
+    linear-gradient(to bottom, #3498db, #2980b9),
+    linear-gradient(45deg, rgba(241, 196, 15, 0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(241, 196, 15, 0.2) 25%, transparent 25%);
+}
+
+.volcano {
+  background: 
+    linear-gradient(to bottom, #e74c3c, #c0392b),
+    radial-gradient(circle at 50% 20%, #e67e22 15%, transparent 25%);
+}
+
+.temple {
+  background: 
+    linear-gradient(to bottom, #d35400, #a04000),
+    repeating-linear-gradient(
+      45deg,
+      #8e44ad,
+      #8e44ad 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}

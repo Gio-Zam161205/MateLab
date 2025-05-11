@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Resuelve y Corre!</title>
+  <link rel="stylesheet" href="css/robo.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>¡Resuelve y Corre!</h1>
+    <p>Resuelve la pregunta para mover el robot hacia la meta.</p>
+
+    <div class="board" id="board">
+      <!-- Celdas se generan dinámicamente -->
+    </div>
+
+    <div class="question-box">
+      <p id="question">Cargando pregunta...</p>
+      <input type="text" id="answer" placeholder="Tu respuesta">
+      <button onclick="checkAnswer()">Verificar</button>
+    </div>
+
+    <p class="status" id="status"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="js/resuelve.js"></script>
+</body>
+</html>

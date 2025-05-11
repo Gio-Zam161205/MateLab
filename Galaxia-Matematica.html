@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Asteroids</title>
+    <link rel="stylesheet" href="css/asteroids.css">
+    </head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="ui">
+        Nivel: <span id="level">1</span> | 
+        Puntos: <span id="score">0</span> | 
+        Vidas: <span id="lives">3</span>
+    </div>
+    <div id="startScreen">
+        <h1>MATH ASTEROIDS</h1>
+        <p>Resuelve las ecuaciones matemáticas para destruir los asteroides</p>
+        <p>Usa las flechas del teclado o los botones en pantalla para moverte</p>
+        <p>Presiona ESPACIO o el botón de disparo para disparar</p>
+        <button id="startBtn">Comenzar Juego</button>
+    </div>
+    <div id="gameOver">
+        <h1>GAME OVER</h1>
+        <p>Puntuación final: <span id="finalScore">0</span></p>
+        <button id="restartBtn">Jugar de nuevo</button>
+    </div>
+    
+    <div id="mobileControls">
+        <div id="leftBtn" class="mobile-btn">←</div>
+        <div id="rightBtn" class="mobile-btn">→</div>
+        <div id="shootBtn" class="mobile-btn">▲</div>
+    </div>
+
+    <audio id="laserSound" preload="metadata">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-laser-weapon-shot-1680.mp3" type="audio/mpeg">
+        <source src="sounds/laser.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="explosionSound" preload="metadata">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3" type="audio/mpeg">
+        <source src="sounds/explosion.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameOverSound" preload="metadata">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-retro-arcade-lose-2027.mp3" type="audio/mpeg">
+        <source src="sounds/gameover.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="levelUpSound" preload="metadata">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" type="audio/mpeg">
+        <source src="sounds/levelup.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bgMusic" loop preload="metadata">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-game-show-suspense-waiting-668.mp3" type="audio/mpeg">
+        <source src="sounds/background.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/asteroids.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Matelabc - Proyecto Inovatec</title>
+</head>
+<body>
+
+  <header>
+    <img src="img/matelabc.png" alt="Nombre de la página" class="logo">
+
+    <div class="nav-icons">
+      <div class="nav-icon-container" onclick="showSection('search')">
+        <img src="img/search-alt-2-svgrepo-com.svg" class="nav-icon" alt="Búsqueda">
+        <span>Búsqueda</span>
+      </div>
+      <div class="nav-icon-container" onclick="showSection('calculator')">
+        <img src="img/calculator-svgrepo-com.svg" class="nav-icon" alt="Calculadora">
+        <span>Calculadora</span>
+      </div>
+      <div class="nav-icon-container" onclick="showSection('graphics')">
+        <img src="img/graph1-svgrepo-com.svg" class="nav-icon" alt="Gráficos">
+        <span>Gráficos</span>
+      </div>
+      <div class="nav-icon-container" onclick="showSection('geometry')">
+        <img src="img/compass-drafting-svgrepo-com.svg" class="nav-icon" alt="Geometría">
+        <span>Geometría</span>
+      </div>
+      <div class="nav-icon-container" onclick="showSection('academic')">
+        <img src="img/graduation-cap-svgrepo-com.svg" class="nav-icon" alt="Guía Académica">
+        <span>Guía Académica</span>
+      </div>
+      <div class="nav-icon-container" onclick="showSection('game')">
+        <img src="img/xbox-digital-control-svgrepo-com.svg" class="nav-icon" alt="Video Juegos">
+        <span>Juegos</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+   <!-- Sección Búsqueda (por defecto activa) -->
+    <div id="search" class="section active">
+      <!-- Buscador -->
+      <div class="search-bar">
+      <img src="img/search-alt-2-svgrepo-com.svg" style="width: 24px;" alt="Buscar">
+      <input type="text" placeholder="Buscar...">
+    </div>
+
+    <!-- Secciones de tarjetas -->
+    <div class="cards">
+      <div class="card">
+        <img src="img/aprende.png" alt="Aprende">
+        <h3>Aprende</h3>
+      </div>
+      <div class="card">
+        <img src="img/consulta.png" alt="Consulta">
+        <h3>Consulta</h3>
+      </div>
+      <div class="card">
+        <img src="img/soluciona.png" alt="Soluciona">
+        <h3>Soluciona</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección Calculadora -->
+  <div id="calculator" class="section">
+    <h2>Calculadora paso por paso</h2>
+  
+    <div class="toolbar">
+      <div class="math-buttons">
+        <button>x²</button>
+        <button>x^</button>
+        <button>log</button>
+        <button>√</button>
+        <button>□√</button>
+        <button>≤</button>
+        <button>≥</button>
+        <button>÷</button>
+        <button>xⁿ</button>
+        <button>π</button>
+        <button>(□)</button>
+        <button>d/dx</button>
+        <button>∂/∂x</button>
+        <button>∫</button>
+        <button>∮</button>
+        <button>lim</button>
+        <button>∑</button>
+        <button>∞</button>
+        <button>θ</button>
+        <button>(f∘g)</button>
+        <button>f(x)</button>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button>simplificar</button>
+        <button>resolver para</button>
+        <button>inversa</button>
+        <button>tangente</button>
+        <button>línea</button>
+        <button>Ver todo</button>
+      </div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" placeholder="Ingrese un problema" />
+        <button class="camera-btn">
+        <img src="img/camera-svgrepo-com.svg" alt="Cámara" class="camera-icon">
+      </button>
+    </div>
+
+    <div class="examples">
+        <p><strong>Ejemplos</strong></p>
+        <p><code>x² − x − 6 = 0</code></p>
+      </div>
+    </div>
+
+    <!-- Sección Gráficos -->
+    <div class="container">
+      <div id="graphics" class="section active">
+          <h2>Calculadora Gráfica</h2>
+          <div id="graphing-calculator"></div>
+      </div>
+    </div>
+
+
+      <!-- Sección Geometría -->
+      <div id="geometry" class="section">
+        <div class="geometry-container">
+          <!-- Panel Izquierdo -->
+          <div class="left-panel">
+            <div class="top-bar">
+              <h3>Sin título</h3>
+              <div class="toolbar">
+                <button class="btn teal">Guardar diagrama</button>
+                <button class="btn teal">Ejemplos</button>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <div class="math-buttons">
+                <button>x²</button>
+                <button>x^</button>
+                <button>log</button>
+                <button>√</button>
+                <button>□√</button>
+                <button>≤</button>
+                <button>≥</button>
+                <button>÷</button>
+                <button>xⁿ</button>
+                <button>π</button>
+                <button>(□)</button>
+                <button>d/dx</button>
+                <button>∂/∂x</button>
+                <button>∫</button>
+                <button>∮</button>
+                <button>lim</button>
+                <button>∑</button>
+                <button>∞</button>
+                <button>θ</button>
+                <button>(f∘g)</button>
+                <button>f(x)</button>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <button class="btn teal">Si tenemos</button>
+              <button class="btn">Demostrar</button>
+              <button class="btn">Buscar</button>
+            </div>
+
+            <div class="toolbar input-area">
+              <input type="text" placeholder="Ingresar datos">
+              <button class="btn teal">✔</button>
+            </div>
+
+            <p>Si tenemos:</p>
+          </div>
+
+          <!-- Panel Derecho -->
+          <div class="right-panel">
+            <div class="shape-buttons">
+              <button>Segmentos y puntos</button>
+              <button>Triángulo</button>
+              <button>Cuadrilátero</button>
+              <button>Círculo</button>
+            </div>
+            <div class="character-container">
+              <div class="character" onclick="sayMotivation()">
+                <div class="face">
+                  <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                  </div>
+                  <div class="smile"></div>
+                </div>
+                <div class="leg left"></div>
+                <div class="leg right"></div>
+                <div class="shape circle"></div>
+                <div class="shape triangle"></div>
+                <div class="shape square"></div>
+              </div>
+              <p class="message" id="motivationText">¡Creemos algo nuevo!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Sección Guía Académica -->
+    <div id="academic" class="section">
+      <h2>Guía Académica</h2>
+      <p>Aquí va el contenido de la guía académica...</p>
+    </div>
+
+      <!-- Sección Video Juegos -->
+      <div id="game" class="section">
+        <div class="game-container">
+          <div class="game-card" onclick="location.href='Galaxia-Matematica.html'">
+            <div class="svg-wrapper">
+              <img src="img/falling-asteroid-svgrepo-com.svg" alt="Álgebra" class="svg-icon">
+            </div>
+            <h3>Juego de Álgebra</h3>
+            <p>Resuelve ecuaciones para avanzar.</p>
+          </div>
+          
+          <div class="game-card" onclick="location.href='survivor.html'">
+            <div class="svg-wrapper">
+              <img src="img/void-hunter-svgrepo-com.svg" alt="Geometría" class="svg-icon">
+            </div>
+            <h3>Math Survivor ULTIMATE 🏆</h3>
+            <p>¡Supera el desafío matemático!</p>
+          </div>
+
+          <div class="game-card" onclick="location.href='robot.html'">
+            <div class="svg-wrapper">
+              <img src="img/robot-svgrepo-com.svg" alt="Robot" class="svg-icon">
+            </div>
+            <h3>Robot Matemático</h3>
+            <p>Contesta bien para mover el robot.</p>
+          </div>
+        </div>
+      </div>
+
+
+  </main>
+  <!-- Footer fijo al fondo -->
+  <footer>
+    <div class="footer-container">
+      <img src="img/matelab.png" alt="Logo Matelab" class="footer-logo">
+      <p>&copy; 2025 Matelabc. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+ <!-- Script de Desmos -->
+ <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+ <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const calcContainer = document.getElementById('graphing-calculator');
+         
+         const calculator = Desmos.GraphingCalculator(calcContainer, {
+             expressions: true,
+             settingsMenu: true,
+             zoomButtons: true,
+             border: false
+         });
+         
+         calculator.setExpression({
+             id: 'graph1',
+             latex: 'y=x^2',
+             color: '#2d70b3'
+         });
+         
+         calculator.setMathBounds({
+             left: -10,
+             right: 15,
+             bottom: -5,
+             top: 10
+         });
+     });
+ </script>
+  <script>
+      function sayMotivation() {
+      const text = document.getElementById("motivationText");
+      const phrases = ["¡Tú puedes!", "¡Vamos!", "¡Sigue adelante!", "¡Eres genial!", "¡Buen trabajo!"];
+      const random = phrases[Math.floor(Math.random() * phrases.length)];
+      text.textContent = random;
+    }
+  </script>
+ </body>
+</html>
