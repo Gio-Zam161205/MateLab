@@ -9,37 +9,40 @@
 <body>
 
   <header>
-    <img src="img/matelabc.png" alt="Nombre de la página" class="logo">
+  <img src="img/matelabc.png" alt="Nombre de la página" class="logo">
 
-    <img src="img/hamburger-menu-svgrepo-com.svg" alt="Menú" class="hamburger-menu" onclick="toggleMenu()">
+  <!-- Icono del menú hamburguesa (solo visible en móvil) -->
+  <img src="img/hamburger-menu-svgrepo-com.svg" alt="Menú" class="hamburger-menu" onclick="toggleMenu()">
 
-    <div class="nav-icons" id="navMenu">
-      <div class="nav-icon-container" onclick="showSection('search')">
-        <img src="img/search-alt-2-svgrepo-com.svg" class="nav-icon" alt="Búsqueda">
-        <span>Búsqueda</span>
-      </div>
-      <div class="nav-icon-container" onclick="showSection('calculator')">
-        <img src="img/calculator-svgrepo-com.svg" class="nav-icon" alt="Calculadora">
-        <span>Calculadora</span>
-      </div>
-      <div class="nav-icon-container" onclick="showSection('graphics')">
-        <img src="img/graph1-svgrepo-com.svg" class="nav-icon" alt="Gráficos">
-        <span>Gráficos</span>
-      </div>
-      <div class="nav-icon-container" onclick="showSection('geometry')">
-        <img src="img/compass-drafting-svgrepo-com.svg" class="nav-icon" alt="Geometría">
-        <span>Geometría</span>
-      </div>
-      <div class="nav-icon-container" onclick="showSection('academic')">
-        <img src="img/graduation-cap-svgrepo-com.svg" class="nav-icon" alt="Guía Académica">
-        <span>Guía Académica</span>
-      </div>
-      <div class="nav-icon-container" onclick="showSection('game')">
-        <img src="img/xbox-digital-control-svgrepo-com.svg" class="nav-icon" alt="Video Juegos">
-        <span>Juegos</span>
-      </div>
+  <!-- Menú de navegación -->
+  <div class="nav-icons" id="navMenu">
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('search')">
+      <img src="img/search-alt-2-svgrepo-com.svg" class="nav-icon" alt="Búsqueda">
+      <span>Búsqueda</span>
     </div>
-  </header>
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('calculator')">
+      <img src="img/calculator-svgrepo-com.svg" class="nav-icon" alt="Calculadora">
+      <span>Calculadora</span>
+    </div>
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('graphics')">
+      <img src="img/graph1-svgrepo-com.svg" class="nav-icon" alt="Gráficos">
+      <span>Gráficos</span>
+    </div>
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('geometry')">
+      <img src="img/compass-drafting-svgrepo-com.svg" class="nav-icon" alt="Geometría">
+      <span>Geometría</span>
+    </div>
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('academic')">
+      <img src="img/graduation-cap-svgrepo-com.svg" class="nav-icon" alt="Guía Académica">
+      <span>Guía Académica</span>
+    </div>
+    <div class="nav-icon-container" onclick="navigateAndCloseMenu('game')">
+      <img src="img/xbox-digital-control-svgrepo-com.svg" class="nav-icon" alt="Video Juegos">
+      <span>Juegos</span>
+    </div>
+  </div>
+</header>
+
 
   <!-- Contenido principal -->
   <main>
@@ -298,11 +301,22 @@
     }
   </script>
 
-  <script>
+<script>
   function toggleMenu() {
     const menu = document.getElementById("navMenu");
-    menu.classList.toggle("show");
+    if (menu) {
+      menu.classList.toggle("show");
+    }
+  }
+
+  function navigateAndCloseMenu(sectionId) {
+    showSection(sectionId);
+    const menu = document.getElementById("navMenu");
+    if (window.innerWidth <= 768) {
+      menu.classList.remove("show");
+    }
   }
 </script>
+
  </body>
 </html>
