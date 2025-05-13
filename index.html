@@ -11,7 +11,9 @@
   <header>
     <img src="img/matelabc.png" alt="Nombre de la página" class="logo">
 
-    <div class="nav-icons">
+    <img src="img/hamburger-menu-svgrepo-com.svg" alt="Menú" class="hamburger-menu" onclick="toggleMenu()">
+
+    <div class="nav-icons" id="navMenu">
       <div class="nav-icon-container" onclick="showSection('search')">
         <img src="img/search-alt-2-svgrepo-com.svg" class="nav-icon" alt="Búsqueda">
         <span>Búsqueda</span>
@@ -227,7 +229,7 @@
             <p>Resuelve ecuaciones para avanzar.</p>
           </div>
           
-          <div class="game-card" onclick="location.href='Survivor.html'">
+          <div class="game-card" onclick="location.href='survivor.html'">
             <div class="svg-wrapper">
               <img src="img/void-hunter-svgrepo-com.svg" alt="Geometría" class="svg-icon">
             </div>
@@ -295,5 +297,12 @@
       text.textContent = random;
     }
   </script>
+
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById("navMenu");
+    menu.classList.toggle("show");
+  }
+</script>
  </body>
 </html>
