@@ -71,57 +71,344 @@
     </div>
   </div>
 
-  <!-- Sección Calculadora -->
-  <div id="calculator" class="section">
-    <h2>Calculadora paso por paso</h2>
+ <!-- Sección Calculadora Mejorada -->
+<div id="calculator" class="section">
+  <h2>Calculadora paso por paso</h2>
   
+  <!-- Pestañas por área temática -->
+  <div class="calc-tabs">
+    <button class="tab-button active" data-tab="algebra" title="Ecuaciones, sistemas, polinomios">Álgebra</button>
+    <button class="tab-button" data-tab="geometry" title="Áreas, perímetros, volúmenes">Geometría</button>
+    <button class="tab-button" data-tab="statistics" title="Media, mediana, varianza">Estadística</button>
+    <button class="tab-button" data-tab="probability" title="Combinatoria, probabilidad">Probabilidad</button>
+  </div>
+  
+  <!-- Contenido de las pestañas -->
+  <div class="tab-content" id="algebra-tab">
     <div class="toolbar">
       <div class="math-buttons">
-        <button>x²</button>
-        <button>x^</button>
-        <button>log</button>
-        <button>√</button>
-        <button>□√</button>
-        <button>≤</button>
-        <button>≥</button>
-        <button>÷</button>
-        <button>xⁿ</button>
-        <button>π</button>
-        <button>(□)</button>
-        <button>d/dx</button>
-        <button>∂/∂x</button>
-        <button>∫</button>
-        <button>∮</button>
-        <button>lim</button>
-        <button>∑</button>
-        <button>∞</button>
-        <button>θ</button>
-        <button>(f∘g)</button>
-        <button>f(x)</button>
+        <button class="math-btn" title="Función cuadrática: x²">x²</button>
+        <button class="math-btn" title="Potencia: Eleva x a una potencia">x^</button>
+        <button class="math-btn" title="Logaritmo">log</button>
+        <button class="math-btn" title="Raíz cuadrada">√</button>
+        <button class="math-btn" title="Raíz de cualquier índice">□√</button>
+        <button class="math-btn" title="Menor o igual que">≤</button>
+        <button class="math-btn" title="Mayor o igual que">≥</button>
+        <button class="math-btn" title="División">÷</button>
+        <button class="math-btn" title="x elevado a n">xⁿ</button>
+        <button class="math-btn" title="Pi: 3.14159...">π</button>
+        <button class="math-btn" title="Paréntesis">(□)</button>
+        <button class="math-btn" title="Derivada respecto a x">d/dx</button>
+        <button class="math-btn" title="Derivada parcial respecto a x">∂/∂x</button>
+        <button class="math-btn" title="Integral">∫</button>
       </div>
 
       <div class="toolbar-buttons">
-        <button>simplificar</button>
-        <button>resolver para</button>
-        <button>inversa</button>
-        <button>tangente</button>
-        <button>línea</button>
-        <button>Ver todo</button>
+        <button class="tool-btn" title="Simplificar expresiones">Simplificar</button>
+        <button class="tool-btn" title="Resolver para una variable">Resolver para</button>
+        <button class="tool-btn" title="Encontrar la función inversa">Inversa</button>
+        <button class="tool-btn formula-btn" title="Ver fórmulas algebraicas">
+          <i class="formula-icon">f(x)</i> Fórmulas
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="geometry-tab">
+    <div class="toolbar">
+      <div class="math-buttons">
+        <button class="math-btn geo" title="Ángulo">∠</button>
+        <button class="math-btn geo" title="Perpendicular">⊥</button>
+        <button class="math-btn geo" title="Paralelo">∥</button>
+        <button class="math-btn geo" title="Triángulo">△</button>
+        <button class="math-btn geo" title="Cuadrado">□</button>
+        <button class="math-btn geo" title="Círculo">○</button>
+        <button class="math-btn geo" title="Grados">°</button>
+        <button class="math-btn geo" title="Pi: 3.14159...">π</button>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button class="tool-btn" title="Calcular área">Área</button>
+        <button class="tool-btn" title="Calcular perímetro">Perímetro</button>
+        <button class="tool-btn" title="Calcular volumen">Volumen</button>
+        <button class="tool-btn formula-btn" title="Ver fórmulas geométricas">
+          <i class="formula-icon">△</i> Fórmulas
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="statistics-tab">
+    <div class="toolbar">
+      <div class="math-buttons">
+        <button class="math-btn stat" title="Media aritmética">x̄</button>
+        <button class="math-btn stat" title="Mediana">Med</button>
+        <button class="math-btn stat" title="Moda">Mod</button>
+        <button class="math-btn stat" title="Desviación estándar">σ</button>
+        <button class="math-btn stat" title="Varianza">σ²</button>
+        <button class="math-btn stat" title="Sumatorio">∑</button>
+        <button class="math-btn stat" title="Cuartil">Q</button>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button class="tool-btn" title="Estadística descriptiva básica">Analizar datos</button>
+        <button class="tool-btn" title="Regresión lineal">Regresión</button>
+        <button class="tool-btn" title="Correlación">Correlación</button>
+        <button class="tool-btn formula-btn" title="Ver fórmulas estadísticas">
+          <i class="formula-icon">σ</i> Fórmulas
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="probability-tab">
+    <div class="toolbar">
+      <div class="math-buttons">
+        <button class="math-btn prob" title="Factorial">n!</button>
+        <button class="math-btn prob" title="Combinaciones">C(n,r)</button>
+        <button class="math-btn prob" title="Permutaciones">P(n,r)</button>
+        <button class="math-btn prob" title="Probabilidad">P(A)</button>
+        <button class="math-btn prob" title="Probabilidad condicional">P(A|B)</button>
+        <button class="math-btn prob" title="Unión">∪</button>
+        <button class="math-btn prob" title="Intersección">∩</button>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button class="tool-btn" title="Calcular probabilidad">Probabilidad</button>
+        <button class="tool-btn" title="Distribución binomial">Binomial</button>
+        <button class="tool-btn" title="Distribución normal">Normal</button>
+        <button class="tool-btn formula-btn" title="Ver fórmulas de probabilidad">
+          <i class="formula-icon">P</i> Fórmulas
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entrada para el problema -->
+  <div class="input-area">
+    <input type="text" id="calc-input" placeholder="Ingrese un problema" />
+    <button class="camera-btn" title="Escanear problema con la cámara">
+      <img src="img/camera-svgrepo-com.svg" alt="Cámara" class="camera-icon">
+    </button>
+    <button class="calc-btn" id="solve-btn" title="Resolver problema">Resolver</button>
+  </div>
+
+  <!-- Panel de resultados -->
+  <div class="results-area">
+    <div class="result-panel">
+      <div class="result-header">
+        <h3>Resultado</h3>
+        <button class="copy-btn" title="Copiar resultado">Copiar</button>
+      </div>
+      <div class="result-content" id="calc-result">
+        <p class="placeholder">Los resultados aparecerán aquí...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sistema de historial -->
+  <div class="history-section">
+    <div class="history-header">
+      <h3>Historial</h3>
+      <button class="clear-btn" title="Borrar todo el historial">Borrar</button>
+    </div>
+    <div class="history-list" id="calc-history">
+      <div class="history-item">
+        <div class="history-expression">x² + 5x + 6 = 0</div>
+        <div class="history-result">x = -2, x = -3</div>
+        <div class="history-actions">
+          <button class="history-use" title="Usar esta expresión">Usar</button>
+          <button class="history-delete" title="Eliminar del historial">×</button>
+        </div>
+      </div>
+      <div class="history-item">
+        <div class="history-expression">√16 + 9</div>
+        <div class="history-result">7</div>
+        <div class="history-actions">
+          <button class="history-use" title="Usar esta expresión">Usar</button>
+          <button class="history-delete" title="Eliminar del historial">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de fórmulas -->
+  <div class="formula-modal" id="formula-modal">
+    <div class="formula-modal-content">
+      <div class="formula-header">
+        <h3>Fórmulas</h3>
+        <button class="close-modal" title="Cerrar">×</button>
+      </div>
+      
+      <!-- Contenedor de fórmulas con pestañas -->
+      <div class="formula-tabs">
+        <button class="formula-tab-btn active" data-formulas="algebra-formulas">Álgebra</button>
+        <button class="formula-tab-btn" data-formulas="geometry-formulas">Geometría</button>
+        <button class="formula-tab-btn" data-formulas="statistics-formulas">Estadística</button>
+        <button class="formula-tab-btn" data-formulas="probability-formulas">Probabilidad</button>
+      </div>
+      
+      <!-- Fórmulas de Álgebra -->
+      <div class="formula-content active" id="algebra-formulas">
+        <div class="formula-item">
+          <h4>Ecuación Cuadrática</h4>
+          <div class="formula-equation">ax² + bx + c = 0</div>
+          <div class="formula-solution">x = (-b ± √(b² - 4ac)) / 2a</div>
+        </div>
+        <div class="formula-item">
+          <h4>Diferencia de Cuadrados</h4>
+          <div class="formula-equation">a² - b² = (a+b)(a-b)</div>
+        </div>
+        <div class="formula-item">
+          <h4>Cuadrado de Binomio</h4>
+          <div class="formula-equation">(a+b)² = a² + 2ab + b²</div>
+        </div>
+      </div>
+      
+      <!-- Fórmulas de Geometría -->
+      <div class="formula-content" id="geometry-formulas">
+        <div class="formula-item">
+          <h4>Área del Triángulo</h4>
+          <div class="formula-equation">A = (b × h) / 2</div>
+        </div>
+        <div class="formula-item">
+          <h4>Área del Círculo</h4>
+          <div class="formula-equation">A = π × r²</div>
+        </div>
+        <div class="formula-item">
+          <h4>Volumen de Esfera</h4>
+          <div class="formula-equation">V = (4/3) × π × r³</div>
+        </div>
+      </div>
+      
+      <!-- Fórmulas de Estadística -->
+      <div class="formula-content" id="statistics-formulas">
+        <div class="formula-item">
+          <h4>Media Aritmética</h4>
+          <div class="formula-equation">x̄ = (x₁ + x₂ + ... + xₙ) / n</div>
+        </div>
+        <div class="formula-item">
+          <h4>Desviación Estándar</h4>
+          <div class="formula-equation">σ = √[(Σ(xᵢ - x̄)²) / n]</div>
+        </div>
+      </div>
+      
+      <!-- Fórmulas de Probabilidad -->
+      <div class="formula-content" id="probability-formulas">
+        <div class="formula-item">
+          <h4>Combinaciones</h4>
+          <div class="formula-equation">C(n,r) = n! / (r! × (n-r)!)</div>
+        </div>
+        <div class="formula-item">
+          <h4>Regla de la Multiplicación</h4>
+          <div class="formula-equation">P(A∩B) = P(A) × P(B|A)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ejemplos -->
+  <div class="examples">
+    <p><strong>Ejemplos</strong></p>
+    <div class="example-chips">
+      <span class="example-chip" title="Haz clic para usar este ejemplo">x² − x − 6 = 0</span>
+      <span class="example-chip" title="Haz clic para usar este ejemplo">∫ x² dx</span>
+      <span class="example-chip" title="Haz clic para usar este ejemplo">d/dx(2x³ + 5x)</span>
+      <span class="example-chip" title="Haz clic para usar este ejemplo">P(5,3)</span>
+    </div>
+  </div>
+</div>
+
+    <!-- Sección Gráficos -->
+    <div class="container">
+      <div id="graphics" class="section active">
+          <h2>Calculadora Gráfica</h2>
+          <div id="graphing-calculator"></div>
       </div>
     </div>
 
-    <div class="input-area">
-        <input type="text" placeholder="Ingrese un problema" />
-        <button class="camera-btn">
-        <img src="img/camera-svgrepo-com.svg" alt="Cámara" class="camera-icon">
-      </button>
-    </div>
 
-    <div class="examples">
-        <p><strong>Ejemplos</strong></p>
-        <p><code>x² − x − 6 = 0</code></p>
+      <!-- Sección Geometría -->
+      <div id="geometry" class="section">
+        <div class="geometry-container">
+          <!-- Panel Izquierdo -->
+          <div class="left-panel">
+            <div class="top-bar">
+              <h3>Sin título</h3>
+              <div class="toolbar">
+                <button class="btn teal">Guardar diagrama</button>
+                <button class="btn teal">Ejemplos</button>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <div class="math-buttons">
+                <button>x²</button>
+                <button>x^</button>
+                <button>log</button>
+                <button>√</button>
+                <button>□√</button>
+                <button>≤</button>
+                <button>≥</button>
+                <button>÷</button>
+                <button>xⁿ</button>
+                <button>π</button>
+                <button>(□)</button>
+                <button>d/dx</button>
+                <button>∂/∂x</button>
+                <button>∫</button>
+                <button>∮</button>
+                <button>lim</button>
+                <button>∑</button>
+                <button>∞</button>
+                <button>θ</button>
+                <button>(f∘g)</button>
+                <button>f(x)</button>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <button class="btn teal">Si tenemos</button>
+              <button class="btn">Demostrar</button>
+              <button class="btn">Buscar</button>
+            </div>
+
+            <div class="toolbar input-area">
+              <input type="text" placeholder="Ingresar datos">
+              <button class="btn teal">✔</button>
+            </div>
+
+            <p>Si tenemos:</p>
+          </div>
+
+          <!-- Panel Derecho -->
+          <div class="right-panel">
+            <div class="shape-buttons">
+              <button>Segmentos y puntos</button>
+              <button>Triángulo</button>
+              <button>Cuadrilátero</button>
+              <button>Círculo</button>
+            </div>
+            <div class="character-container">
+              <div class="character" onclick="sayMotivation()">
+                <div class="face">
+                  <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                  </div>
+                  <div class="smile"></div>
+                </div>
+                <div class="leg left"></div>
+                <div class="leg right"></div>
+                <div class="shape circle"></div>
+                <div class="shape triangle"></div>
+                <div class="shape square"></div>
+              </div>
+              <p class="message" id="motivationText">¡Creemos algo nuevo!</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
     <!-- Sección Gráficos -->
     <div class="container">
@@ -215,11 +502,130 @@
       </div>
 
 
-    <!-- Sección Guía Académica -->
-    <div id="academic" class="section">
-      <h2>Guía Académica</h2>
-      <p>Aquí va el contenido de la guía académica...</p>
-    </div>
+       <!-- Sección Guía Académica -->
+          <div id="academic" class="section">
+            <div class="academic-content">
+              <!-- Primer Año de Secundaria -->
+              <div class="grade-section">
+                <h3>Primer Año de Secundaria</h3>
+                
+                <div class="subject">
+                  <h4>1. Sentido numérico y pensamiento algebraico</h4>
+                  
+                  <div class="topic">
+                    <h5>1.1. Números enteros, fraccionarios y decimales</h5>
+                    <p><strong>Representación en la recta numérica:</strong></p>
+                    <p>La recta numérica es una línea horizontal donde se ubican números ordenados de izquierda (valores menores) a derecha (valores mayores). El cero es el punto de referencia.</p>
+                    <p><strong>Pasos para representar:</strong></p>
+                    <ol>
+                      <li>Dibuja una línea recta con flechas en ambos extremos (indica infinito).</li>
+                      <li>Marca el 0 en el centro.</li>
+                      <li>Divide en segmentos iguales (ej. 1 cm = 1 unidad).</li>
+                      <li>Enteros positivos: Derecha del cero. Negativos: Izquierda.</li>
+                      <li>Fracciones/Decimales: Divide los segmentos.</li>
+                    </ol>
+                    
+                    <p><strong>Comparación y orden:</strong></p>
+                    <ul>
+                      <li><strong>Enteros:</strong> Un número es mayor si está más a la derecha en la recta.</li>
+                      <li><strong>Fracciones/Decimales:</strong>
+                        <ul>
+                          <li>Método 1: Convertir a decimal.</li>
+                          <li>Método 2: Mismo denominador.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    
+                    <p><strong>Operaciones básicas:</strong></p>
+                    <p><em>Suma/Resta de enteros:</em></p>
+                    <ul>
+                      <li>Mismo signo: Se suman y se conserva el signo.</li>
+                      <li>Signos diferentes: Se restan y prevalece el signo del mayor absoluto.</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="topic">
+                    <h5>1.2. Múltiplos y divisores</h5>
+                    <p><strong>MCD y mcm:</strong></p>
+                    <ul>
+                      <li><strong>MCD (Máximo Común Divisor):</strong> Mayor número que divide exactamente a dos o más números.</li>
+                      <li><strong>mcm (Mínimo Común Múltiplo):</strong> Menor número que es múltiplo de dos o más números.</li>
+                    </ul>
+                    
+                    <p><strong>Números primos y compuestos:</strong></p>
+                    <ul>
+                      <li><strong>Primos:</strong> Solo tienen dos divisores (1 y sí mismos). Ejemplos: 2, 3, 5, 7, 11.</li>
+                      <li><strong>Compuestos:</strong> Tienen más de dos divisores. Ejemplo: 4 (1, 2, 4).</li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Continúa con los demás temas del primer año -->
+                </div>
+                
+                <!-- Segundo Año de Secundaria -->
+                <div class="subject">
+                  <h3>Segundo Año de Secundaria</h3>
+                  
+                  <div class="topic">
+                    <h4>2. Forma, espacio y medida</h4>
+                    
+                    <p><strong>2.1. Perímetros y áreas de figuras planas</strong></p>
+                    <p><strong>Concepto clave:</strong> El perímetro es la medida del contorno de una figura (suma de sus lados), mientras que el área es la medida de su superficie.</p>
+                    
+                    <p><strong>Triángulos:</strong></p>
+                    <ul>
+                      <li><strong>Perímetro (P):</strong> Suma de sus tres lados.</li>
+                      <li><strong>Área (A):</strong> Depende de la base (b) y la altura (h) correspondiente.</li>
+                    </ul>
+                    
+                    <p><strong>Rectángulos y cuadriláteros:</strong></p>
+                    <ul>
+                      <li><strong>Rectángulo:</strong>
+                        <ul>
+                          <li>Perímetro: P = 2(b + h)</li>
+                          <li>Área: A = b × h</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Continúa con los demás temas del segundo año -->
+                </div>
+                
+                <!-- Tercer Año de Secundaria -->
+                <div class="subject">
+                  <h3>Tercer Año de Secundaria</h3>
+                  
+                  <div class="topic">
+                    <h4>3. Análisis de Datos y Probabilidad</h4>
+                    
+                    <p><strong>3.1. Lectura e Interpretación de Tablas y Gráficas</strong></p>
+                    <p><strong>Conceptos Clave:</strong></p>
+                    <ul>
+                      <li><strong>Tablas:</strong> Organizan datos en filas y columnas para facilitar su análisis.</li>
+                      <li><strong>Gráficas:</strong> Representan visualmente los datos para identificar patrones o tendencias.</li>
+                    </ul>
+                    
+                    <p><strong>Tipos de Gráficas:</strong></p>
+                    <ol>
+                      <li><strong>Gráfica de Barras:</strong>
+                        <ul>
+                          <li>Usa barras rectangulares para comparar cantidades.</li>
+                        </ul>
+                      </li>
+                      <li><strong>Gráfica Circular (o de Pastel):</strong>
+                        <ul>
+                          <li>Muestra proporciones de un total (100%).</li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+                  
+                  <!-- Continúa con los demás temas del tercer año -->
+                </div>
+              </div>
+            </div>
+          </div>
 
       <!-- Sección Video Juegos -->
       <div id="game" class="section">
@@ -267,6 +673,7 @@
   <script src="js/script.js"></script>
  <!-- Script de Desmos -->
  <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+ <script src="js/calculadora.js"></script>
  <script>
      document.addEventListener('DOMContentLoaded', function() {
          const calcContainer = document.getElementById('graphing-calculator');
