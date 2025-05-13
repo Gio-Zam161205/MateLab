@@ -12,32 +12,36 @@ body {
 }
 
 .game-container {
-  width: 1200px;
-  height: 600px;
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  max-height: 700px;
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===== ESCENARIOS ===== */
 .scenario {
-  width: 100%;
-  height: 70%;
-  position: absolute;
+  flex: 1;
+  position: relative;
   transition: all 0.7s;
   background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px; /* Espacio superior para el personaje */
+  padding-top: 60px;
 }
 
 /* ===== TEXTO DE ESCENA ===== */
 .scene-text {
   font-size: 1.5rem;
-  margin: 0 auto 30px auto; /* 30px de separación inferior */
+  margin: 0 auto 30px auto;
   padding: 15px 25px;
   background: rgba(241, 196, 15, 0.15);
   border-radius: 15px;
@@ -52,27 +56,28 @@ body {
 
 /* ===== PREGUNTA MATEMÁTICA ===== */
 .question {
-  font-size: 4.5rem;
-  margin: 40px 0; /* 40px de separación vertical */
+  font-size: 4vw;
+  margin: 30px 0;
   color: #f1c40f;
   text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
-  padding: 0 20px;
+  padding: 10px 20px;
   background: rgba(0,0,0,0.4);
   border-radius: 15px;
-  min-height: 100px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   z-index: 5;
 }
 
 /* ===== PERSONAJE ===== */
 .character {
-  width: 140px;
-  height: 140px;
+  width: 15vw;
+  max-width: 140px;
+  height: auto;
+  aspect-ratio: 1;
   position: absolute;
-  bottom: 25%; /* Posición más alta */
+  bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s;
@@ -82,18 +87,42 @@ body {
 
 /* ===== INTERFAZ INFERIOR ===== */
 .game-ui {
-  position: absolute;
-  bottom: 0;
+  position: relative;
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
-  padding: 25px;
+  padding: 20px 10px 30px;
   color: white;
   text-align: center;
   border-top: 4px solid #f1c40f;
   z-index: 20;
 }
 
-/* ===== RESTANTE DEL CSS (conserva todo esto igual) ===== */
+.game-ui h1 {
+  font-size: 1.8rem;
+  margin: 0 0 15px;
+}
+
+/* ===== BOTÓN DE SONIDO ===== */
+#soundBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  z-index: 30;
+  background: #f1c40f;
+  color: #1a2b3c;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Luckiest Guy', cursive;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#soundBtn:hover {
+  background: #f39c12;
+}
+
+/* ===== ENEMIGO ===== */
 .enemy {
   width: 100px;
   height: 100px;
@@ -104,15 +133,16 @@ body {
   z-index: 5;
 }
 
+/* ===== ESTADÍSTICAS ===== */
 .stats {
   display: flex;
   justify-content: space-around;
-  margin: 15px 0;
   flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
 }
 
 .stat {
-  margin: 5px 10px;
   font-size: 1.2em;
 }
 
@@ -121,11 +151,13 @@ body {
   margin: 0 5px;
 }
 
+/* ===== INPUT Y BOTONES ===== */
 input {
   width: 80%;
+  max-width: 400px;
   padding: 12px;
   font-size: 1.2em;
-  margin: 10px 0;
+  margin: 10px auto;
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -151,14 +183,6 @@ button:hover {
   background: #f39c12;
 }
 
-#soundBtn {
-  position: absolute;
-  top: 10px;
-  right: 50px;
-  padding: 5px 10px;
-  font-size: 0.9em;
-}
-
 .feedback {
   min-height: 30px;
   font-size: 1.2em;
@@ -166,6 +190,7 @@ button:hover {
   font-weight: bold;
 }
 
+/* ===== BARRA DE TIEMPO ===== */
 .time-bar {
   width: 90%;
   height: 10px;
@@ -183,6 +208,7 @@ button:hover {
   transition: width 0.1s linear;
 }
 
+/* ===== EFECTOS VISUALES ===== */
 #effects {
   position: absolute;
   width: 100%;
@@ -226,7 +252,7 @@ button:hover {
   animation: enemyAttack 1.5s forwards;
 }
 
-/* Escenarios con texturas CSS */
+/* ===== ESCENARIOS ===== */
 .jungle {
   background: 
     linear-gradient(to bottom, #1e8449, #145a32),
@@ -263,4 +289,41 @@ button:hover {
       transparent 10px,
       transparent 20px
     );
+}
+
+/* ===== MEDIA QUERIES RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .question {
+    font-size: 2.5rem;
+  }
+
+  .game-ui h1 {
+    font-size: 1.4rem;
+    padding-right: 60px;
+  }
+
+  #soundBtn {
+    font-size: 0.8em;
+    top: 10px;
+    right: 10px;
+    padding: 6px 14px;
+  }
+
+  input {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  .character {
+    width: 100px;
+  }
+
+  .enemy {
+    width: 80px;
+    height: 80px;
+  }
 }
