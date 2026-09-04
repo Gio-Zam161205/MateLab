@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Survivor ULTIMATE 🏆</title>
+    <link rel="stylesheet" href="css/survivor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio para efectos de sonido -->
+    <audio id="bgMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-game-show-suspense-waiting-668.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="correctSound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrongSound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="game-container">
+        <!-- Escenario Dinámico -->
+        <div id="scenario" class="scenario jungle">
+            <!-- Enemigos y personaje -->
+            <svg id="enemy" class="enemy" viewBox="0 0 100 100" style="display: none;"></svg>
+            <svg id="character" class="character" viewBox="0 0 100 100"></svg>
+            <div id="effects"></div>
+        </div>
+
+        <!-- Interfaz de Juego -->
+        <div class="game-ui">
+            <h1>🏆 MATH SURVIVOR ULTIMATE</h1>
+            
+            <div class="stats">
+                <div class="hearts">
+                    <span id="heart1">❤️</span>
+                    <span id="heart2">❤️</span>
+                    <span id="heart3">❤️</span>
+                </div>
+                <div class="stat">💪 <span id="energy">100</span>%</div>
+                <div class="stat">🏆 <span id="score">0</span></div>
+                <div class="stat">⚡ x<span id="bonus">1.0</span></div>
+                <div class="stat">🎖️ <span id="highscore">0</span></div>
+            </div>
+
+            <div id="scene-text" class="scene-text">¡Prepárate para la aventura matemática!</div>
+            <div id="question" class="question">?</div>
+
+            <input type="text" id="answer" placeholder="Tu respuesta..." autofocus>
+            <button id="submit">¡Intentar!</button>
+
+            <div id="feedback" class="feedback"></div>
+            <div class="time-bar">
+                <div id="time-left" class="time-left"></div>
+            </div>
+            
+            <button id="soundBtn">🔊 Sonido ON</button>
+        </div>
+    </div>
+    <script src="js/survivor.js"></script>
+</body>
+</html>

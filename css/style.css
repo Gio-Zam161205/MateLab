@@ -1,0 +1,1211 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  html { font-size: 15px; }
+}
+@media (max-width: 992px) {
+  html { font-size: 14px; }
+}
+@media (max-width: 768px) {
+  html { font-size: 13px; }
+}
+@media (max-width: 576px) {
+  html { font-size: 12px; }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.section {
+  display: none;
+}
+
+/* Mostrar la sección activa */
+.active {
+  display: block;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  background-color: #059bbf;
+  padding: 10px 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 30px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 2vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+  margin: 10px 0;
+}
+
+.nav-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-size: 0.9em;
+  min-width: 60px;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon-container:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+/* Buscador */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 800px;
+  border: 2px solid black;
+  border-radius: 40px;
+  background-color: #00a6cb;
+  padding: 8px 15px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 1rem;
+  width: 90%;
+  margin-left: 10px;
+}
+
+/* Tarjetas */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: calc(50% - 20px);
+  max-width: 350px;
+  min-width: 250px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin-top: 15px;
+}
+
+/* === Estilos para la Calculadora Mejorada === */
+/* Pestañas por área temática */
+.calc-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.tab-button {
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-bottom: -2px;
+}
+
+.tab-button:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-button.active {
+  background-color: #059bbf;
+  color: white;
+  border-bottom: 2px solid #059bbf;
+}
+
+/* Contenido de pestañas */
+.tab-content {
+  display: none;
+  padding: 15px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Barra de herramientas */
+.toolbar {
+  margin-bottom: 15px;
+}
+
+.math-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.toolbar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Botones matemáticos */
+.math-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.15s ease;
+  min-width: 40px;
+}
+
+.math-btn:hover {
+  background-color: #e9e9e9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Botones de herramientas */
+.tool-btn {
+  padding: 8px 15px;
+  background-color: #e9e9e9;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.15s ease;
+}
+
+.tool-btn:hover {
+  background-color: #ddd;
+}
+
+.formula-btn {
+  background-color: #d1ecf1;
+}
+
+.formula-btn:hover {
+  background-color: #bee5eb;
+}
+
+/* Área de entrada */
+.input-area {
+  display: flex;
+  margin: 15px 0;
+  gap: 8px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.input-area input:focus {
+  border-color: #059bbf;
+  outline: none;
+}
+
+.camera-btn {
+  padding: 0 12px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.camera-btn:hover {
+  background: #e0e0e0;
+}
+
+.camera-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.calc-btn {
+  padding: 0 20px;
+  background-color: #059bbf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.15s ease;
+}
+
+.calc-btn:hover {
+  background-color: #0489a9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Panel de resultados */
+.results-area {
+  margin: 20px 0;
+}
+
+.result-panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.result-header {
+  background-color: #f5f5f5;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.copy-btn {
+  padding: 5px 10px;
+  background-color: #e9e9e9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.copy-btn:hover {
+  background-color: #ddd;
+}
+
+.result-content {
+  padding: 15px;
+  min-height: 100px;
+  font-family: 'Courier New', monospace;
+}
+
+.placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Sistema de historial */
+.history-section {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.history-header {
+  background-color: #f5f5f5;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.history-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.clear-btn {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-btn:hover {
+  background-color: #d32f2f;
+}
+
+.history-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-expression {
+  font-weight: bold;
+  flex: 1;
+  min-width: 150px;
+}
+
+.history-result {
+  color: #059bbf;
+  flex: 1;
+  min-width: 100px;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.history-use, .history-delete {
+  padding: 5px 10px;
+  background-color: #e9e9e9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.history-use:hover {
+  background-color: #d4d4d4;
+}
+
+.history-delete {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
+.history-delete:hover {
+  background-color: #ffcdd2;
+}
+
+/* Modal de fórmulas */
+.formula-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.formula-modal.active {
+  display: flex;
+}
+
+.formula-modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-header {
+  background-color: #059bbf;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formula-header h3 {
+  margin: 0;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formula-tabs {
+  display: flex;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  overflow-x: auto;
+}
+
+.formula-tab-btn {
+  padding: 12px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.formula-tab-btn.active {
+  background-color: white;
+  border-bottom: 3px solid #059bbf;
+  font-weight: bold;
+}
+
+.formula-content {
+  display: none;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.formula-content.active {
+  display: block;
+}
+
+.formula-item {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.formula-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.formula-item h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.formula-equation {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-family: 'Cambria Math', 'Latin Modern Math', serif;
+}
+
+.formula-solution {
+  font-size: 16px;
+  color: #059bbf;
+  font-family: 'Cambria Math', 'Latin Modern Math', serif;
+}
+
+/* Ejemplos */
+.examples {
+  margin-top: 20px;
+}
+
+.example-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.example-chip {
+  background-color: #e0f7fa;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid #b2ebf2;
+}
+
+.example-chip:hover {
+  background-color: #b2ebf2;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .section {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .calc-tabs {
+    gap: 3px;
+  }
+  
+  .tab-button {
+    padding: 8px 10px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .input-area {
+    flex-direction: column;
+  }
+  
+  .input-area input {
+    width: 100%;
+  }
+  
+  .camera-btn, .calc-btn {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .math-buttons, .toolbar-buttons {
+    gap: 5px;
+  }
+  
+  .math-btn {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+  
+  .tool-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .formula-modal-content {
+    width: 95%;
+    height: 85vh;
+  }
+  
+  .formula-tab-btn {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+#graphing-calculator {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.geometry-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+}
+
+.left-panel {
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.right-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.teal {
+  background-color: teal;
+  color: white;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 10px 0;
+}
+
+.toolbar button {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.toolbar button:hover {
+  background-color: #e0e0e0;
+}
+
+.btn.teal {
+  background-color: #009688;
+  color: white;
+}
+
+.btn.teal:hover {
+  background-color: #00796b;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Contenedor del personaje */
+.character-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px 0;
+}
+
+/* Cuerpo principal (cuadrado) */
+.character {
+  width: 80px;
+  height: 80px;
+  background-color: #f9b233;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: bounce 2.5s infinite;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Brazos */
+.character::before,
+.character::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: #3a2f4d;
+  top: 30%;
+  border-radius: 5px;
+}
+
+.character::before {
+  left: -30px;
+  transform: rotate(30deg);
+}
+
+.character::after {
+  right: -30px;
+  transform: rotate(-30deg);
+}
+
+/* Piernas */
+.leg {
+  width: 5px;
+  height: 30px;
+  background-color: #3a2f4d;
+  position: absolute;
+  bottom: -30px;
+  border-radius: 3px;
+}
+
+.leg.left {
+  left: 20px;
+}
+
+.leg.right {
+  right: 20px;
+}
+
+/* Ojos y sonrisa */
+.face {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eyes {
+  display: flex;
+  gap: 10px;
+}
+
+.eye {
+  width: 8px;
+  height: 8px;
+  background-color: #2b2b2b;
+  border-radius: 50%;
+}
+
+.smile {
+  margin-top: 5px;
+  width: 30px;
+  height: 15px;
+  border-bottom: 3px solid #2b2b2b;
+  border-radius: 0 0 25px 25px;
+}
+
+/* Elementos flotantes geométricos */
+.shape {
+  position: absolute;
+  animation: float 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.shape.circle {
+  width: 20px;
+  height: 20px;
+  background-color: #9cd7f7;
+  border-radius: 50%;
+  top: -40px;
+  left: -25px;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid #6ec1e4;
+  top: -60px;
+  left: 40px;
+}
+
+.shape.square {
+  width: 16px;
+  height: 16px;
+  background-color: #cfeaff;
+  top: -20px;
+  right: -25px;
+}
+
+/* Texto */
+.message {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #555;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0 15px;
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Estilos para la Guía Académica */
+#academic {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.academic-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grade-section {
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.grade-section h3 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subject {
+  margin-bottom: 1.5rem;
+}
+
+.subject h4 {
+  color: #2980b9;
+  margin: 1rem 0;
+}
+
+.topic {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #e74c3c;
+}
+
+.topic h5 {
+  color: #16a085;
+  margin: 0.8rem 0;
+}
+
+.topic p, .topic ul, .topic ol {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.topic ul, .topic ol {
+  padding-left: 1.5rem;
+}
+
+.topic li {
+  margin-bottom: 0.3rem;
+}
+
+strong {
+  color: #34495e;
+}
+
+em {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.game-card {
+  position: relative;
+  width: calc(50% - 15px);
+  min-width: 200px;
+  max-width: 300px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  padding: 40px 20px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: visible;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  background: #d4f0ff;
+}
+
+.svg-wrapper {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+}
+
+.svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer al fondo */
+footer {
+  background-color: #059bbf;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries para pantallas grandes */
+@media (min-width: 768px) {
+  .nav-icons {
+    gap: 80px;
+  }
+  
+  .search-bar {
+    padding: 10px 20px;
+  }
+  
+  .search-bar input {
+    font-size: 1.2rem;
+  }
+  
+  .geometry-container {
+    flex-direction: row;
+    height: 500px;
+  }
+  
+  .left-panel {
+    width: 50%;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+  }
+  
+  .right-panel {
+    width: 50%;
+  }
+  
+  #graphing-calculator {
+    height: 500px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: calc(33.333% - 20px);
+  }
+  
+  .game-card {
+    width: calc(25% - 20px);
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .nav-icon-container {
+    font-size: 0.8em;
+    min-width: 50px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .game-card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .character {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .leg {
+    height: 20px;
+  }
+  
+  .eye {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .smile {
+    width: 20px;
+    height: 10px;
+  }
+  
+  .message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-icon-container {
+    font-size: 0.7em;
+    min-width: 45px;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+.hamburger-menu {
+  display: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* Solo se muestra en pantallas pequeñas */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .nav-icons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #ffffff;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 999;
+    padding: 10px;
+  }
+
+  .nav-icons.show {
+    display: flex;
+  }
+
+  .nav-icon-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  .nav-icon-container img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-icon-container span {
+    font-size: 16px;
+  }
+}
